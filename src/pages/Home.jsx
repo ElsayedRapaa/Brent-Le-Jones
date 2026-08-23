@@ -44,7 +44,26 @@ export default function Home() {
           tracking-wide
         "
       >
-        Hello, I’m Jameson, a Product Leader with a software engineering background and over a decade of experience building modern digital products. I offer a unique blend of technical expertise, team leadership, and creative problem-solving.
+        Principal Software Engineer with 18+ years of experience architecting and delivering production software across frontend, backend,
+        <br />
+        <br />
+        cloud infrastructure, distributed systems, and AI-powered applications. Deep hands-on expertise across React, TypeScript, Node.js,
+        <br />
+        <br />
+        Python, PHP/Laravel, SQL and NoSQL databases, APIs, Kubernetes, and cloud-native architecture, with a career spanning enterprise
+        <br />
+        <br />
+        systems, large-scale SaaS platforms, and modern AI products. Proven ability to move across system boundaries-from domain modeling
+        <br />
+        <br />
+        and application architecture to production implementation, performance, reliability, and infrastructure-while leading technical
+        <br />
+        <br />
+        decisions that keep complex systems scalable and maintainable. Combines principal-level architectural judgment with hands-on
+        <br />
+        <br />
+        engineering, working closely with product and engineering teams to turn complex business requirements into reliable software built
+        to evolve.
       </motion.h3>
 
       <motion.h3

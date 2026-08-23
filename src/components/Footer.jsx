@@ -54,7 +54,7 @@ export default function Footer() {
 
             <div className={animatedClass("delay-900")}>
               <a
-                href="mailto:hello@jamesonnuss.com"
+                href="mailto:hello@brentleejones.com"
                 className="inline-block border-b border-white pb-1 text-lg hover:opacity-70 transition-opacity duration-300"
               >
                 Get in touch.
@@ -68,23 +68,23 @@ export default function Footer() {
             </h3>
 
             <p className={`text-gray-200 text-lg ${animatedClass("delay-600")}`}>
-              hello@jamesonnuss.com
+              hello@brentleejones.com
             </p>
 
             <div className={`flex items-center gap-4 text-xl ${animatedClass("delay-900")}`}>
-              <a href="https://www.linkedin.com/in/jamesonnuss/" className="hover:opacity-70 transition-opacity text-2xl">
+              <a href="https://www.linkedin.com/in/brentleejones/" className="hover:opacity-70 transition-opacity text-2xl">
                 <FaLinkedinIn />
               </a>
-              <a href="https://github.com/jamesonnuss" className="hover:opacity-70 transition-opacity text-2xl">
+              <a href="https://github.com/brentleejones" className="hover:opacity-70 transition-opacity text-2xl">
                 <FaGithub />
               </a>
-              <a href="https://www.instagram.com/jamesonnuss/" className="hover:opacity-70 transition-opacity text-2xl">
+              <a href="https://www.instagram.com/brentleejones/" className="hover:opacity-70 transition-opacity text-2xl">
                 <FaInstagram />
               </a>
-              <a href="https://twitter.com/jamesonnuss" className="hover:opacity-70 transition-opacity text-2xl">
+              <a href="https://twitter.com/brentleejones" className="hover:opacity-70 transition-opacity text-2xl">
                 <FaTwitter />
               </a>
-              <a href="mailto:hello@jamesonnuss.com" className="hover:opacity-70 transition-opacity text-2xl">
+              <a href="mailto:hello@brentleejones.com" className="hover:opacity-70 transition-opacity text-2xl">
                 <FaEnvelope />
               </a>
             </div>
@@ -93,7 +93,7 @@ export default function Footer() {
         </div>
 
         <div className={`mt-16 pt-8 text-center text-sm text-white ${animatedClass("delay-1200")}`}>
-          <p>© Jameson Nuss 2026. All Rights Reserved.</p>
+          <p>© BRENT LEE JONES Nuss 2026. All Rights Reserved.</p>
         </div>
       </div>
     </footer>

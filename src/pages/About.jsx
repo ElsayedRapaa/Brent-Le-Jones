@@ -11,40 +11,38 @@ export default function About() {
   const skillsData = [
     {
       title: "Platforms & Frameworks:",
-      details: "React, NextJS, WordPress, Drupal, Shopify, Tailwind, Foundation",
+      details: "React, Next.js, Node.js, Python, FastAPI, PHP, Laravel, CodeIgniter, C#, Kubernetes, Docker, Supabase, Redis",
     },
     {
-      title: "Languages & Skills:",
-      details: "JavaScript, Typescript, HTML, CSS / SCSS, NodeJS, PHP, Git, Web Accessibility",
+      title: "Languages & AI Skills:",
+      details: "TypeScript, JavaScript (ES6+), Python, PHP, C#, HTML5, CSS3, SQL, NoSQL, OpenAI API, Anthropic Claude, RAG, AI Agents",
     },
     {
-      title: "Design & Project Management:",
-      details: "Figma, Sketch, Adobe Creative Suite, Jira, Asana, Teamwork, Google Workspace, Microsoft Office",
+      title: "Architecture & Engineering:",
+      details: "SaaS Architecture, Multi-Tenant Systems, REST & GraphQL APIs, Microservices, PostgreSQL, MySQL, SQL Server, MongoDB, AWS, CI/CD",
     },
     {
       title: "Education:",
-      details: "Bachelor of Science - Web Design and Interactive Media - The Art Institute of Portland (2011-2014)",
+      details: "Master of Computer Science - Texas A&M University (2005-2007) | Bachelor of Computer Science - University of Arkansas at Fayetteville (2001-2005)",
     },
   ];
 
   const companies = [
-    "AWS", "Bayer", "Bonne Maman", "Cisco",
-    "Deloitte", "Demarini", "FLIR", "Fitbit",
-    "Intel", "Nissan", "Rioja", "SOREL",
-    "Splunk", "US Bank", "Workday", "Yuga Labs"
+    "ActiTrak", "First Orion", "Elyxor", "Mainstream Technologies",
+    "AWS", "OpenAI", "Anthropic", "Supabase"
   ];
 
   const instaImages = [
     "/insta_01.webp",
     "/insta_02.webp",
-    "/insta_03.webp",
+    "/insta_03.jpg",
     "/insta_04.webp",
-    "/insta_05.webp",
+    "/insta_05.jpg",
     "/insta_06.webp",
-    "/insta_07.webp",
-    "/insta_08.webp",
-    "/insta_09.webp",
-    "/insta_10.webp",
+    "/insta_07.jpg",
+    "/insta_08.jpg",
+    "/insta_09.jpg",
+    "/insta_10.jpg",
     "/insta_11.webp",
     "/insta_12.webp",
   ];
@@ -81,8 +79,8 @@ export default function About() {
             className="w-full md:w-1/2 shrink-0"
           >
             <img
-              src="/IMG_01.webp"
-              alt="James-Photo"
+              src="/insta_03.jpg"
+              alt="Brent-Photo"
               className="w-full h-auto max-h-150 object-cover rounded-2xl"
             />
           </motion.div>
@@ -96,38 +94,29 @@ export default function About() {
           >
             <motion.h1
               variants={itemVariants}
-              className="font-light text-white pt-2 text-3xl sm:text-4xl md:text-[54px] tracking-wide"
+              className="font-light text-white pt-2 text-2xl sm:text-3xl md:text-[54px] tracking-tight"
             >
-              Hello, I’m Jameson.
+              Hello, I’m Brent Lee Jones.
             </motion.h1>
             <motion.p variants={itemVariants} className="text-white text-base md:text-lg leading-8">
-              I’ve always been drawn to building and creative problem-solving, especially when given the opportunity to think outside-the-box. So naturally, my journey led me to web development, where I could blend my foundational knowledge in web design with the intricate complexities of development, uniting my creativity with my technical expertise. I thrive on collaboration, excelling in environments where I can engage with diverse teams and clients, bringing a unique versatility to every project.
+              I’m a Principal Software Engineer with over 18 years of experience architecting and delivering production software across frontend, backend, cloud infrastructure, distributed systems, and AI-powered applications. My focus is on turning complex business requirements into scalable, reliable, and highly maintainable systems.
             </motion.p>
             <motion.p variants={itemVariants} className="text-white text-base md:text-lg leading-8">
-              My role as a liaison for the development team has been instrumental in shaping me into a more well-rounded professional. It's allowed me to extend beyond my technical proficiencies in development, giving me a broader view of projects. This experience has been pivotal in understanding and meeting the challenging demands of various roles, encompassing responsibilities as a developer, technical lead, frontend team lead, and in client communication.
+              Throughout my career, I’ve moved seamlessly across system boundaries—from domain modeling and application architecture to cloud infrastructure, performance optimization, and AI engineering. I thrive on collaborating closely with product and engineering teams to build robust software built to evolve.
             </motion.p>
             <motion.p variants={itemVariants} className="text-white text-base md:text-lg leading-8">
-              My ability to bridge the gap between technical and non-technical stakeholders, combined with a deep understanding of both development and design principles, enables me to lead and contribute to projects with a balanced and comprehensive approach.
+              My expertise spans modern full-stack frameworks, multi-tenant SaaS architectures, complex data systems, and cutting-edge GenAI/RAG implementations, enabling me to lead technical strategies with both principal-level judgment and hands-on execution.
             </motion.p>
             <motion.p variants={itemVariants} className="font-normal text-white tracking-wider text-base md:text-lg">
-              I am currently a Senior Product Manager at{" "}
-              <a
-                href="https://yuga.com/"
-                target="_blank"
-                rel="noreferrer"
-                className="underline text-[#c5ae77]"
-              >
-                Yuga Labs
-              </a>
-              .
+              I am currently working as a Principal AI & SaaS Engineer, building AI-powered SaaS platforms with Next.js, React, TypeScript, Python, FastAPI, Supabase, and PostgreSQL.
             </motion.p>
             <motion.p variants={itemVariants} className="font-normal text-white tracking-wider text-base md:text-lg">
-              When I am not building online, I enjoy going on adventures around the Pacific Northwest, savoring morning coffee with a book in hand, spending quality time with my friends and family, traveling, and learning new things.
+              Based in Arkansas, US, when I am not architecting systems, I enjoy exploring emerging technologies, mentoring engineers, and continuous learning.
             </motion.p>
             <motion.div variants={itemVariants}>
               <Button
                 label={"View Resume"}
-                action={"https://jamesonnuss.com/s/Jameson-Nuss-Resume-2025.pdf"}
+                action={"/BrentLJones_Resume.pdf"}
               />
             </motion.div>
           </motion.div>
@@ -201,7 +190,7 @@ export default function About() {
               variants={itemVariants}
               className="text-white text-center text-base md:text-xl leading-relaxed max-w-2xl mx-auto mb-16 font-light"
             >
-              Over the course of my professional career I have had the opportunity to work on projects with companies of all sizes. Here are some of the companies I’ve worked with:
+              Over the course of my 18+ year career, I’ve had the privilege of architecting and building systems for scale across companies of various sizes:
             </motion.p>
 
             <motion.div
@@ -236,7 +225,7 @@ export default function About() {
             variants={itemVariants}
             className="text-gray-300 text-center text-base md:text-lg leading-relaxed max-w-lg mx-auto mb-1"
           >
-            Instagram is space where I share some of life's adventures.
+            Instagram is a space where I share a glimpse of my life outside of software engineering.
           </motion.p>
 
           <motion.p
@@ -250,7 +239,7 @@ export default function About() {
             <p
               className="text-gray-200 hover:text-white transition-colors text-base md:text-lg"
             >
-              @jamesonnuss
+              @brentleejones
             </p>
           </motion.div>
 

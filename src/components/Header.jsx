@@ -134,7 +134,7 @@ export default function Header() {
               initial="closed"
               animate="open"
               exit="closed"
-              className="flex flex-col items-center space-y-24"
+              className="flex flex-col items-center gap-y-20 w-full"
             >
               {navLinks.map((link, idx) => (
                 <motion.div key={idx} variants={itemVariants}>

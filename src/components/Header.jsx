@@ -2,6 +2,7 @@ import { useEffect, useState } from "react";
 import Container from "./Container";
 import Navbar from "./Navbar";
 import { motion, AnimatePresence } from "framer-motion";
+import { Link } from "react-router-dom"; // استيراد Link
 
 export default function Header() {
   const [isScrolled, setIsScrolled] = useState(false);
@@ -81,9 +82,9 @@ export default function Header() {
       >
         <Container>
           <div className="flex items-center justify-between">
-            <a href="/">
+            <Link to="/">
               <img src="/NLOGO.webp" alt="Logo" height={60} width={60} />
-            </a>
+            </Link>
 
             <nav className="md:flex items-center space-x-4 hidden">
               <Navbar link="Home" />
@@ -124,9 +125,9 @@ export default function Header() {
             className="fixed inset-0 z-40 bg-black flex flex-col justify-center items-center md:hidden"
           >
             <div className="absolute top-8 left-8">
-              <a href="/" onClick={() => setIsOpen(false)}>
+              <Link to="/" onClick={() => setIsOpen(false)}>
                 <img src="/NLOGO.webp" alt="Logo" height={50} width={50} />
-              </a>
+              </Link>
             </div>
 
             <motion.nav
@@ -138,13 +139,13 @@ export default function Header() {
             >
               {navLinks.map((link, idx) => (
                 <motion.div key={idx} variants={itemVariants}>
-                  <a
-                    href={link.href}
+                  <Link
+                    to={link.href}
                     onClick={() => setIsOpen(false)}
                     className="text-white text-5xl font-light tracking-wider hover:text-gray-400 transition-colors"
                   >
                     {link.title}
-                  </a>
+                  </Link>
                 </motion.div>
               ))}
             </motion.nav>

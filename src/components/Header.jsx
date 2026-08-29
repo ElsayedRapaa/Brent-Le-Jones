@@ -83,7 +83,7 @@ export default function Header() {
         <Container>
           <div className="flex items-center justify-between">
             <Link to="/">
-              <img src="/NLOGO.png" alt="Logo" height={60} width={60} />
+              <img src="/NLOGO.png" alt="Logo" height={120} width={120} />
             </Link>
 
             <nav className="md:flex items-center space-x-4 hidden">

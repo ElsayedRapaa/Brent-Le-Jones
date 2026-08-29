@@ -1,5 +1,6 @@
 import { useState } from "react";
 import { motion } from "framer-motion";
+import { Helmet } from "react-helmet-async";
 import Button from "../components/Button";
 import Container from "../components/Container";
 import { Link } from "react-router-dom";
@@ -8,6 +9,51 @@ import ImageLightbox from "../components/ImageLightbox";
 export default function About() {
   const [selectedImageIndex, setSelectedImageIndex] = useState(null);
 
+  const pageTitle = "About Brent Lee Jones | Principal AI & SaaS Engineer";
+  const pageDescription =
+    "Brent Lee Jones is a Principal Software Engineer & AI Architect with 18+ years of experience building scalable SaaS, enterprise cloud infrastructure, RAG systems, and AI-powered applications.";
+  const canonicalUrl = "https://brentleejones.dev/about";
+  const ogImageUrl = "https://brentleejones.dev/insta_03.jpg";
+
+  // Structured Data (JSON-LD) for Search Engines
+  const personSchema = {
+    "@context": "https://schema.org",
+    "@type": "Person",
+    "name": "Brent Lee Jones",
+    "jobTitle": "Principal AI & SaaS Engineer",
+    "url": "https://brentleejones.dev",
+    "image": ogImageUrl,
+    "sameAs": [
+      "https://github.com/brentleejones",
+      "https://linkedin.com/in/brentleejones",
+      "https://instagram.com/brentleejones"
+    ],
+    "alumniOf": [
+      {
+        "@type": "EducationalOrganization",
+        "name": "Texas A&M University",
+        "degree": "Master of Computer Science"
+      },
+      {
+        "@type": "EducationalOrganization",
+        "name": "University of Arkansas at Fayetteville",
+        "degree": "Bachelor of Computer Science"
+      }
+    ],
+    "knowsAbout": [
+      "Software Architecture",
+      "Artificial Intelligence",
+      "SaaS Development",
+      "React",
+      "Next.js",
+      "TypeScript",
+      "Python",
+      "FastAPI",
+      "RAG Systems",
+      "Cloud Infrastructure"
+    ]
+  };
+
   const skillsData = [
     {
       title: "Platforms & Frameworks:",
@@ -15,11 +61,11 @@ export default function About() {
     },
     {
       title: "Languages & AI Skills:",
-      details: "TypeScript, JavaScript (ES6+), Python, PHP, C#, HTML5, CSS3, SQL, NoSQL, OpenAI API, Anthropic Claude, RAG, AI Agents",
+      details: "TypeScript, JavaScript (ES6+), Python, PHP, C#, HTML5, CSS3, SQL, NoSQL, OpenAI API, Anthropic Claude, RAG, AI Agents, Prompt Engineering",
     },
     {
       title: "Architecture & Engineering:",
-      details: "SaaS Architecture, Multi-Tenant Systems, REST & GraphQL APIs, Microservices, PostgreSQL, MySQL, SQL Server, MongoDB, AWS, CI/CD",
+      details: "SaaS Architecture, Multi-Tenant Systems, REST & GraphQL APIs, Microservices, Event-Driven Systems, PostgreSQL, MySQL, SQL Server, MongoDB, AWS, CI/CD",
     },
     {
       title: "Education:",
@@ -69,6 +115,25 @@ export default function About() {
 
   return (
     <div>
+      <Helmet>
+        <title>{pageTitle}</title>
+        <meta name="description" content={pageDescription} />
+        <link rel="canonical" href={canonicalUrl} />
+        <meta property="og:type" content="profile" />
+        <meta property="og:title" content={pageTitle} />
+        <meta property="og:description" content={pageDescription} />
+        <meta property="og:url" content={canonicalUrl} />
+        <meta property="og:image" content={ogImageUrl} />
+        <meta property="og:site_name" content="Brent Lee Jones Portfolio" />
+        <meta name="twitter:card" content="summary_large_image" />
+        <meta name="twitter:title" content={pageTitle} />
+        <meta name="twitter:description" content={pageDescription} />
+        <meta name="twitter:image" content={ogImageUrl} />
+        <script type="application/ld+json">
+          {JSON.stringify(personSchema)}
+        </script>
+      </Helmet>
+
       <Container>
         <div className="flex flex-col md:flex-row items-start justify-between gap-8 md:gap-16 pt-12 mx-auto w-full">
           <motion.div
@@ -76,21 +141,22 @@ export default function About() {
             whileInView={{ opacity: 1, x: 0 }}
             viewport={{ once: true, margin: "-50px" }}
             transition={{ duration: 0.7, delay: 0.3, ease: "easeOut" }}
-            className="w-full md:w-1/2 shrink-0"
+            className="w-full md:w-5/12 shrink-0 flex justify-center"
           >
-            <img
-              src="/insta_03.jpg"
-              alt="Brent-Photo"
-              className="w-full h-auto max-h-150 object-cover rounded-2xl"
-            />
+            <div className="relative w-full max-w-sm md:max-w-none">
+              <img
+                src="/insta_03.jpg"
+                alt="Brent Lee Jones - Principal Software Engineer and AI Systems Architect"
+                className="w-full h-auto max-h-115 object-cover rounded-2xl shadow-2xl border border-neutral-800/80 hover:scale-[1.01] transition-transform duration-500"
+              />
+            </div>
           </motion.div>
-
           <motion.div
             initial="hidden"
             whileInView="visible"
             viewport={{ once: true, margin: "-50px" }}
             variants={containerVariants}
-            className="w-full md:w-1/2 flex flex-col space-y-8"
+            className="w-full md:w-7/12 flex flex-col space-y-8"
           >
             <motion.h1
               variants={itemVariants}
@@ -99,19 +165,16 @@ export default function About() {
               Hello, I’m Brent Lee Jones.
             </motion.h1>
             <motion.p variants={itemVariants} className="text-white text-base md:text-lg leading-8">
-              I’m a Principal Software Engineer with over 18 years of experience architecting and delivering production software across frontend, backend, cloud infrastructure, distributed systems, and AI-powered applications. My focus is on turning complex business requirements into scalable, reliable, and highly maintainable systems.
+              I engineer what comes next. With 18+ years of experience, I operate at the intersection of software architecture, AI, SaaS, distributed systems, and cloud engineering—designing and delivering the systems that power complex products at scale.
             </motion.p>
             <motion.p variants={itemVariants} className="text-white text-base md:text-lg leading-8">
-              Throughout my career, I’ve moved seamlessly across system boundaries—from domain modeling and application architecture to cloud infrastructure, performance optimization, and AI engineering. I thrive on collaborating closely with product and engineering teams to build robust software built to evolve.
+              My work spans the entire technology stack, from React, Next.js, TypeScript, Node.js, Python, and FastAPI to PostgreSQL, MongoDB, Redis, AWS, Docker, Kubernetes, microservices, and cloud-native infrastructure. On top of that foundation, I architect production AI systems using LLMs, RAG, embeddings, vector search, AI agents, tool calling, structured outputs, and agentic workflows.
             </motion.p>
             <motion.p variants={itemVariants} className="text-white text-base md:text-lg leading-8">
-              My expertise spans modern full-stack frameworks, multi-tenant SaaS architectures, complex data systems, and cutting-edge GenAI/RAG implementations, enabling me to lead technical strategies with both principal-level judgment and hands-on execution.
+              I go beyond building applications. I architect intelligent systems that connect AI reasoning with real-world software, data, APIs, business rules, and human workflows—while preserving the security, reliability, scalability, and deterministic behavior that production systems demand.
             </motion.p>
             <motion.p variants={itemVariants} className="font-normal text-white tracking-wider text-base md:text-lg">
-              I am currently working as a Principal AI & SaaS Engineer, building AI-powered SaaS platforms with Next.js, React, TypeScript, Python, FastAPI, Supabase, and PostgreSQL.
-            </motion.p>
-            <motion.p variants={itemVariants} className="font-normal text-white tracking-wider text-base md:text-lg">
-              Based in Arkansas, US, when I am not architecting systems, I enjoy exploring emerging technologies, mentoring engineers, and continuous learning.
+              Architect. Engineer. Problem Solver. AI Builder. I turn complex ideas into production-grade systems built to scale, evolve, and endure.
             </motion.p>
             <motion.div variants={itemVariants}>
               <Button
@@ -145,7 +208,6 @@ export default function About() {
               </motion.div>
             ))}
           </motion.div>
-
           <motion.div
             initial="hidden"
             whileInView="visible"
@@ -153,7 +215,7 @@ export default function About() {
             variants={containerVariants}
             className="flex flex-col items-center"
           >
-            <motion.h1
+            <motion.h2
               variants={itemVariants}
               className="text-center text-[40px] my-28 sm:text-[50px] font-normal text-white tracking-wider"
             >
@@ -162,16 +224,14 @@ export default function About() {
                 Work
               </Link>
               .
-            </motion.h1>
-
+            </motion.h2>
             <motion.img
               variants={itemVariants}
               src="/IMG_02.webp"
-              alt="Img"
+              alt="Brent Lee Jones Software Engineering Portfolio Showcase"
               className="object-cover max-w-217.5 w-full rounded-2xl"
             />
           </motion.div>
-
           <motion.div
             initial="hidden"
             whileInView="visible"
@@ -179,20 +239,18 @@ export default function About() {
             variants={containerVariants}
             className="pt-20"
           >
-            <motion.h1
+            <motion.h2
               variants={itemVariants}
               className="text-white font-light text-3xl md:text-4xl tracking-wide mb-8 text-center"
             >
               Who I’ve worked with.
-            </motion.h1>
-
+            </motion.h2>
             <motion.p
               variants={itemVariants}
               className="text-white text-center text-base md:text-xl leading-relaxed max-w-2xl mx-auto mb-16 font-light"
             >
               Over the course of my 18+ year career, I’ve had the privilege of architecting and building systems for scale across companies of various sizes:
             </motion.p>
-
             <motion.div
               variants={containerVariants}
               className="grid grid-cols-2 sm:grid-cols-4 gap-y-12 gap-x-12 text-center text-white text-lg md:text-xl font-medium"
@@ -206,7 +264,6 @@ export default function About() {
           </motion.div>
         </div>
       </Container>
-
       <div className="w-full px-12 pt-32 pb-16">
         <motion.div
           initial="hidden"
@@ -220,29 +277,28 @@ export default function About() {
           >
             Instagram
           </motion.h2>
-
           <motion.p
             variants={itemVariants}
             className="text-gray-300 text-center text-base md:text-lg leading-relaxed max-w-lg mx-auto mb-1"
           >
             Instagram is a space where I share a glimpse of my life outside of software engineering.
           </motion.p>
-
           <motion.p
             variants={itemVariants}
             className="text-gray-300 text-center text-base md:text-lg leading-relaxed max-w-lg mx-auto mb-3"
           >
             I would love to connect with you, feel free to follow me
           </motion.p>
-
           <motion.div variants={itemVariants} className="text-center mb-16">
-            <p
-              className="text-gray-200 hover:text-white transition-colors text-base md:text-lg"
+            <a
+              href="https://instagram.com/brentleejones"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="text-gray-200 hover:text-white transition-colors text-base md:text-lg inline-block"
             >
               @brentleejones
-            </p>
+            </a>
           </motion.div>
-
           <motion.div
             variants={containerVariants}
             className="grid grid-cols-2 md:grid-cols-4 gap-4 md:gap-6 mt-16"
@@ -256,7 +312,7 @@ export default function About() {
               >
                 <img
                   src={src}
-                  alt={`Instagram ${index + 1}`}
+                  alt={`Brent Lee Jones personal photo ${index + 1}`}
                   className="w-full h-full object-cover"
                 />
               </motion.div>
@@ -264,7 +320,6 @@ export default function About() {
           </motion.div>
         </motion.div>
       </div>
-
       <ImageLightbox
         images={instaImages}
         currentIndex={selectedImageIndex}

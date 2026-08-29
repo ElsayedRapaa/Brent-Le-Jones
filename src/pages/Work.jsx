@@ -1,6 +1,7 @@
 import { useState } from "react";
 import { Link } from "react-router-dom";
 import { motion, AnimatePresence } from "framer-motion";
+import { Helmet } from "react-helmet-async";
 import Card from "../components/Card";
 import Container from "../components/Container";
 import MarqueeSection from "../components/Marquee";
@@ -47,7 +48,7 @@ const projectsData = [
     id: "knowlium-io",
     title: "Knowlium — Enterprise Knowledge & RAG Engine",
     category: "Enterprise AI & Data Architecture",
-    imageUrl: "03.png",
+    imageUrl: "/03.png",
     liveUrl: "https://knowlium.io/",
     techStack: ["Python", "FastAPI", "PostgreSQL", "pgvector", "Supabase", "Pinecone", "Next.js", "React"],
     description: `
@@ -65,7 +66,7 @@ const projectsData = [
     id: "gethyper-ai",
     title: "GetHyper AI — Multi-Tenant Agentic Workflows",
     category: "Agentic AI & Workflow Automation",
-    imageUrl: "04.png",
+    imageUrl: "/04.png",
     liveUrl: "https://gethyper.ai/",
     techStack: ["React", "TypeScript", "Python", "Anthropic Claude API", "LangChain", "GraphQL", "AWS Lambda"],
     description: `
@@ -83,7 +84,7 @@ const projectsData = [
     id: "skyhook-io",
     title: "Skyhook — Scalable Web3 & Infrastructure Gateway",
     category: "Distributed Web3 & SaaS Platform",
-    imageUrl: "05.png",
+    imageUrl: "/05.png",
     liveUrl: "https://www.skyhook.io/",
     techStack: ["PHP", "Laravel", "Vue.js", "Node.js", "Solidity", "MySQL", "Redis", "Docker"],
     description: `
@@ -101,7 +102,7 @@ const projectsData = [
     id: "stacktura-com2",
     title: "Stacktura — Enterprise Software Architecture System",
     category: "Enterprise Software & Multi-Tenant SaaS",
-    imageUrl: "06.png",
+    imageUrl: "/06.png",
     liveUrl: "https://stacktura.com",
     techStack: ["C#", ".NET Core", "SQL Server", "React", "TypeScript", "Azure DevOps", "Kubernetes"],
     description: `
@@ -119,7 +120,7 @@ const projectsData = [
     id: "scaffoldhub-io",
     title: "ScaffoldHub — Full-Stack Application Generator",
     category: "Developer Tools & Full-Stack Automation",
-    imageUrl: "07.png",
+    imageUrl: "/07.png",
     liveUrl: "https://scaffoldhub.io/",
     techStack: ["Node.js", "Express", "React", "Vue.js", "MongoDB", "PostgreSQL", "Prisma", "Docker"],
     description: `
@@ -137,7 +138,7 @@ const projectsData = [
     id: "munus-io",
     title: "Munus — Digital Assets & Smart Contract Operations",
     category: "Web3 Platform & Financial Engineering",
-    imageUrl: "08.png",
+    imageUrl: "/08.png",
     liveUrl: "https://munus.io/",
     techStack: ["TypeScript", "Next.js", "React", "Ethers.js", "Solidity", "Tailwind CSS", "GraphQL", "Node.js"],
     description: `
@@ -152,8 +153,37 @@ const projectsData = [
     `
   }
 ];
+
 export default function Work() {
   const [selectedProject, setSelectedProject] = useState(null);
+
+  const pageTitle = "Selected Work & Engineering Portfolio | Brent Lee Jones";
+  const pageDescription =
+    "Explore featured engineering projects by Brent Lee Jones, including cloud infrastructure tools, RAG engines, multi-tenant AI systems, and enterprise SaaS platforms.";
+  const canonicalUrl = "https://brentleejones.dev/work";
+  const ogImageUrl = "https://brentleejones.dev/01.png";
+
+  const workSchema = {
+    "@context": "https://schema.org",
+    "@type": "CollectionPage",
+    "name": pageTitle,
+    "description": pageDescription,
+    "url": canonicalUrl,
+    "mainEntity": {
+      "@type": "ItemList",
+      "itemListElement": projectsData.map((project, index) => ({
+        "@type": "ListItem",
+        "position": index + 1,
+        "item": {
+          "@type": "SoftwareApplication",
+          "name": project.title,
+          "applicationCategory": project.category,
+          "url": project.liveUrl,
+          "image": `https://brentleejones.dev${project.imageUrl}`
+        }
+      }))
+    }
+  };
 
   const containerVariants = {
     hidden: { opacity: 0 },
@@ -176,68 +206,84 @@ export default function Work() {
   const remainingProjects = projectsData.slice(2);
 
   return (
-    <div>
-      <MarqueeSection />
-      <Container>
-        <motion.div
-          initial="hidden"
-          whileInView="visible"
-          viewport={{ once: true, margin: "-50px" }}
-          variants={containerVariants}
-          className="grid grid-cols-1 md:grid-cols-2 gap-6 px-4"
-        >
-          {firstRow.map((project) => (
-            <motion.div
-              key={project.id}
-              variants={itemVariants}
-              onClick={() => setSelectedProject(project)}
-            >
-              <Card imageUrl={project.imageUrl} title={project.title} />
-            </motion.div>
-          ))}
-        </motion.div>
-
-        <motion.div
-          initial="hidden"
-          whileInView="visible"
-          viewport={{ once: true, margin: "-50px" }}
-          variants={containerVariants}
-          className="grid grid-cols-1 md:grid-cols-3 gap-6 px-4 mt-8"
-        >
-          {remainingProjects.map((project) => (
-            <motion.div
-              key={project.id}
-              variants={itemVariants}
-              onClick={() => setSelectedProject(project)}
-            >
-              <Card imageUrl={project.imageUrl} title={project.title} />
-            </motion.div>
-          ))}
-        </motion.div>
-
-        <motion.h1
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.6, delay: 0.3 }}
-          className="text-center text-3xl font-normal text-white tracking-wider my-28"
-        >
-          More work available{" "}
-          <Link to="/contact" className="underline text-[#c5ae77]">
-            upon request
-          </Link>
-          .
-        </motion.h1>
-      </Container>
-
-      <AnimatePresence>
-        {selectedProject && (
-          <ProjectModal
-            project={selectedProject}
-            onClose={() => setSelectedProject(null)}
-          />
-        )}
-      </AnimatePresence>
-    </div>
+    <>
+      <Helmet>
+        <title>{pageTitle}</title>
+        <meta name="description" content={pageDescription} />
+        <link rel="canonical" href={canonicalUrl} />
+        <meta property="og:type" content="website" />
+        <meta property="og:title" content={pageTitle} />
+        <meta property="og:description" content={pageDescription} />
+        <meta property="og:url" content={canonicalUrl} />
+        <meta property="og:image" content={ogImageUrl} />
+        <meta name="twitter:card" content="summary_large_image" />
+        <meta name="twitter:title" content={pageTitle} />
+        <meta name="twitter:description" content={pageDescription} />
+        <meta name="twitter:image" content={ogImageUrl} />
+        <script type="application/ld+json">
+          {JSON.stringify(workSchema)}
+        </script>
+      </Helmet>
+      <div>
+        <MarqueeSection />
+        <Container>
+          <motion.div
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true, margin: "-50px" }}
+            variants={containerVariants}
+            className="grid grid-cols-1 md:grid-cols-2 gap-6 px-4"
+          >
+            {firstRow.map((project) => (
+              <motion.div
+                key={project.id}
+                variants={itemVariants}
+                onClick={() => setSelectedProject(project)}
+              >
+                <Card imageUrl={project.imageUrl} title={project.title} />
+              </motion.div>
+            ))}
+          </motion.div>
+          <motion.div
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true, margin: "-50px" }}
+            variants={containerVariants}
+            className="grid grid-cols-1 md:grid-cols-3 gap-6 px-4 mt-8"
+          >
+            {remainingProjects.map((project) => (
+              <motion.div
+                key={project.id}
+                variants={itemVariants}
+                onClick={() => setSelectedProject(project)}
+              >
+                <Card imageUrl={project.imageUrl} title={project.title} />
+              </motion.div>
+            ))}
+          </motion.div>
+          <motion.h2
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.6, delay: 0.3 }}
+            className="text-center text-3xl font-normal text-white tracking-wider my-28"
+          >
+            More work available{" "}
+            <Link to="/contact" className="underline text-[#c5ae77]">
+              upon request
+            </Link>
+            .
+          </motion.h2>
+        </Container>
+        <AnimatePresence>
+          {selectedProject && (
+            <ProjectModal
+              project={selectedProject}
+              onClose={() => setSelectedProject(null)}
+            />
+          )}
+        </AnimatePresence>
+      </div>
+    </>
   );
 }

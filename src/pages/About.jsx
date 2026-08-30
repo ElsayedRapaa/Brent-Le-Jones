@@ -135,19 +135,19 @@ export default function About() {
       </Helmet>
 
       <Container>
-        <div className="flex flex-col md:flex-row items-start justify-between gap-8 md:gap-16 pt-12 mx-auto w-full">
+        <div className="flex flex-col md:flex-row items-stretch justify-between gap-8 md:gap-16 pt-12 mx-auto w-full">
           <motion.div
             initial={{ opacity: 0, x: -30 }}
             whileInView={{ opacity: 1, x: 0 }}
             viewport={{ once: true, margin: "-50px" }}
             transition={{ duration: 0.7, delay: 0.3, ease: "easeOut" }}
-            className="w-full md:w-5/12 shrink-0 flex justify-center"
+            className="w-full md:w-5/12 shrink-0 flex"
           >
-            <div className="relative w-full max-w-sm md:max-w-none">
+            <div className="relative w-full h-105 sm:h-125 md:h-[clamp(500px,70vh,720px)] overflow-hidden rounded-2xl">
               <img
-                src="/insta_03.jpg"
+                src="/about.png"
                 alt="Brent Lee Jones - Principal Software Engineer and AI Systems Architect"
-                className="w-full h-auto max-h-115 object-cover rounded-2xl shadow-2xl border border-neutral-800/80 hover:scale-[1.01] transition-transform duration-500"
+                className="w-full h-full object-cover rounded-2xl shadow-2xl hover:scale-[1.01] transition-transform duration-500"
               />
             </div>
           </motion.div>
